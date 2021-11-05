@@ -4,10 +4,10 @@ import java.util.List;
 
 public class News_api_response {
 
-    String status ;
-    String totalResults ;
+    String status ="";
+    int totalResults ;
 
-    List<News_Headlines> article;
+    List<News_Headlines> articles;
 
     public String getStatus() {
         return status;
@@ -17,19 +17,19 @@ public class News_api_response {
         this.status = status;
     }
 
-    public String getTotalResults() {
+    public int getTotalResults() {
         return totalResults;
     }
 
-    public void setTotalResults(String totalResults) {
+    public void setTotalResults(int totalResults) {
         this.totalResults = totalResults;
     }
 
-    public List<News_Headlines> getArticle() {
-        return article;
+    public List<News_Headlines> getArticles() {
+        return articles;
     }
 
-    public void setArticle(List<News_Headlines> article) {
-        this.article = article;
+    public void setArticles(List<News_Headlines> articles) {
+        this.articles = articles;
     }
 }

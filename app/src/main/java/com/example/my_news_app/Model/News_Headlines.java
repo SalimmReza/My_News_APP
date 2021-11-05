@@ -3,16 +3,13 @@ package com.example.my_news_app.Model;
 public class News_Headlines {
 
     Source source = null;
-
-
     String author= "";
-    String title= "";
+    String title = "";
     String description ="";
-    String url= "";
+    String url = "";
     String urlToImage = "";
     String publishedAt = "";
     String content = "";
-
 
     public Source getSource() {
         return source;
