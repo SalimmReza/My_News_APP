@@ -1,11 +1,10 @@
 package com.example.my_news_app.Model;
 
-public class News_Headlines {
-
+public class NewsHeadlines {
     Source source = null;
-    String author= "";
+    String author = "";
     String title = "";
-    String description ="";
+    String description = "";
     String url = "";
     String urlToImage = "";
     String publishedAt = "";

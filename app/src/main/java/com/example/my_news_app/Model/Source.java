@@ -1,9 +1,8 @@
 package com.example.my_news_app.Model;
 
 public class Source {
-
-       String id ="";
-       String name = "";
+    String id ="";
+    String name="";
 
     public String getId() {
         return id;

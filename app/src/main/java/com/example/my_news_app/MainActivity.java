@@ -6,51 +6,60 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.SearchView;
+import android.widget.Toast;
 
-import com.example.my_news_app.Model.News_Headlines;
-import com.example.my_news_app.Model.News_api_response;
+import com.example.my_news_app.Model.NewsApiResponce;
+import com.example.my_news_app.Model.NewsHeadlines;
 
 import java.util.List;
 
-//https://newsapi.org/v2/top-headlines?country=us&apiKey=b89cae9e325d447bad455e15420f1630
 public class MainActivity extends AppCompatActivity {
+
     RecyclerView recyclerView;
-    Custom_Adapter custom_adapter;
-    ProgressDialog pd;
+    CustomAdapter customAdapter;
+    Button btn1, btn2, btn3, btn4, btn5, btn6, btn7;
+    ProgressDialog progressDialog;
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        pd = new ProgressDialog(this);
-        pd.setTitle("Loading...");
-        pd.show();
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Fetching News Articles");
+        progressDialog.show();
 
-        Request_manager request_manager = new Request_manager(this);
-        request_manager.getNewsHeadlines(listener, "general" , null);
+        RequestManager manager = new RequestManager(MainActivity.this);
+        manager.getNewsHeadlines(listner, "general", null);
+
     }
 
-    private final On_fetch_data_listener<News_api_response> listener = new On_fetch_data_listener<News_api_response>() {
+    private final OnFetchDataListner<NewsApiResponce> listner = new OnFetchDataListner<NewsApiResponce>() {
+
         @Override
-        public void on_fetch_data(List<News_Headlines> list, String messages) {
-            show_news(list);
-            pd.dismiss();
+        public void onFetchData(List<NewsHeadlines> data, String message) {
+            showNews(data);
+            progressDialog.dismiss();
+            if (data.isEmpty()) {
+                Toast.makeText(MainActivity.this, "No Data Found!", Toast.LENGTH_LONG).show();
+            }
         }
 
         @Override
-        public void on_error(String messages) {
-
+        public void onError(String message) {
+            Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
         }
     };
 
-    private void show_news(List<News_Headlines> list) {
+    private void showNews(List<NewsHeadlines> list) {
         recyclerView = findViewById(R.id.recycler_main_id);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
-
-        custom_adapter=  new Custom_Adapter(this, list);
-        recyclerView.setAdapter(custom_adapter);
+        customAdapter = new CustomAdapter(this, list);
+        recyclerView.setAdapter(customAdapter);
     }
+
 }

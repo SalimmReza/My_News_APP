@@ -2,12 +2,10 @@ package com.example.my_news_app.Model;
 
 import java.util.List;
 
-public class News_api_response {
-
-    String status ="";
-    int totalResults ;
-
-    List<News_Headlines> articles;
+public class NewsApiResponce {
+    String status;
+    int totalResults;
+    List<NewsHeadlines> articles;
 
     public String getStatus() {
         return status;
@@ -25,11 +23,11 @@ public class News_api_response {
         this.totalResults = totalResults;
     }
 
-    public List<News_Headlines> getArticles() {
+    public List<NewsHeadlines> getArticles() {
         return articles;
     }
 
-    public void setArticles(List<News_Headlines> articles) {
+    public void setArticles(List<NewsHeadlines> articles) {
         this.articles = articles;
     }
 }
