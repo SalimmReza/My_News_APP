@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface OnFetchDataListner<NewsApiResponce> {
     void onFetchData(List<NewsHeadlines> data, String message);
+
     void onError(String message);
 }

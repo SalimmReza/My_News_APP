@@ -18,6 +18,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
+
     CustomAdapter customAdapter;
     Button btn1, btn2, btn3, btn4, btn5, btn6, btn7;
     ProgressDialog progressDialog;

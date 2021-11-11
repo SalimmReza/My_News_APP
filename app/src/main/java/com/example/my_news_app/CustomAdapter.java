@@ -18,6 +18,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
     private List<NewsHeadlines> headlineList;
 
 
+
     public CustomAdapter(Context context, List<NewsHeadlines> headlineList) {
         this.context = context;
         this.headlineList = headlineList;

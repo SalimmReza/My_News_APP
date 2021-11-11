@@ -14,6 +14,7 @@ public class CustomViewHolder extends RecyclerView.ViewHolder {
     public CardView cardView;
     public ImageView img_headline;
 
+
     public CustomViewHolder(@NonNull View itemView) {
         super(itemView);
 

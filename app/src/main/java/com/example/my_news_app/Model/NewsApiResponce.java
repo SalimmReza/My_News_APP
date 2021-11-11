@@ -3,6 +3,7 @@ package com.example.my_news_app.Model;
 import java.util.List;
 
 public class NewsApiResponce {
+
     String status;
     int totalResults;
     List<NewsHeadlines> articles;

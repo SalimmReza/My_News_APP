@@ -2,6 +2,7 @@ package com.example.my_news_app.Model;
 
 public class NewsHeadlines {
     Source source = null;
+
     String author = "";
     String title = "";
     String description = "";

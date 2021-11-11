@@ -41,6 +41,7 @@ public class RequestManager {
                     }
 
                     listener.onFetchData(response.body().getArticles(), response.message());
+
                 }
 
                 @Override
