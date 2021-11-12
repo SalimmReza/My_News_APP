@@ -16,12 +16,14 @@ import java.util.List;
 public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
     private Context context;
     private List<NewsHeadlines> headlineList;
+    private Select_listener listener;
 
 
 
-    public CustomAdapter(Context context, List<NewsHeadlines> headlineList) {
+    public CustomAdapter(Context context, List<NewsHeadlines> headlineList, Select_listener listener) {
         this.context = context;
         this.headlineList = headlineList;
+        this.listener= listener;
     }
 
     @NonNull
@@ -36,11 +38,12 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
         if (headlineList.get(position).getUrlToImage()!=null){
             Picasso.get().load(headlineList.get(position).getUrlToImage()).into(holder.img_headline);
         }
-        holder.text_source.setText(headlineList.get(position).getSource().getName());
+        //holder.text_source.setText(headlineList.get(position).getSource().getName());
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                listener.On_newsClicked(headlineList.get(position));
 
             }
         });

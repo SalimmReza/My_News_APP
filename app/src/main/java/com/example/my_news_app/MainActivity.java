@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.SearchView;
@@ -15,7 +16,7 @@ import com.example.my_news_app.Model.NewsHeadlines;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Select_listener{
 
     RecyclerView recyclerView;
 
@@ -41,10 +42,10 @@ public class MainActivity extends AppCompatActivity {
     private final OnFetchDataListner<NewsApiResponce> listner = new OnFetchDataListner<NewsApiResponce>() {
 
         @Override
-        public void onFetchData(List<NewsHeadlines> data, String message) {
-            showNews(data);
+        public void onFetchData(List<NewsHeadlines> list, String message) {
+            showNews(list);
             progressDialog.dismiss();
-            if (data.isEmpty()) {
+            if (list.isEmpty()) {
                 Toast.makeText(MainActivity.this, "No Data Found!", Toast.LENGTH_LONG).show();
             }
         }
@@ -59,8 +60,14 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_main_id);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
-        customAdapter = new CustomAdapter(this, list);
+        customAdapter = new CustomAdapter(this, list, this);
         recyclerView.setAdapter(customAdapter);
     }
 
+    @Override
+    public void On_newsClicked(NewsHeadlines headlines) {
+        startActivity(new Intent(MainActivity.this, Details_Activity.class)
+        .putExtra("data", headlines));
+
+    }
 }
