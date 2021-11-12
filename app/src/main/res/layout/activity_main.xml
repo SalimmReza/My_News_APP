@@ -4,8 +4,97 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:layout_margin="10dp"
+
     tools:context=".MainActivity">
+
+   <HorizontalScrollView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+      android:layout_margin="5dp"
+      >
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+         >
+         <Button
+            android:id="@+id/btn_1_id"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+            android:text="business"
+            android:textSize="12sp"
+            android:padding="5dp"
+            android:layout_margin="5dp"/>
+
+
+         <Button
+             android:id="@+id/btn_2_id"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="entertainment"
+             android:textSize="12sp"
+             android:padding="5dp"
+             android:layout_margin="5dp"/>
+         <Button
+             android:id="@+id/btn_3_id"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="general"
+             android:textSize="12sp"
+             android:padding="5dp"
+             android:layout_margin="5dp"/>
+         <Button
+             android:id="@+id/btn_4_id"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="health"
+             android:textSize="12sp"
+             android:padding="5dp"
+             android:layout_margin="5dp"/>
+         <Button
+             android:id="@+id/btn_5_id"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="science"
+             android:textSize="12sp"
+             android:padding="5dp"
+             android:layout_margin="5dp"/>
+         <Button
+             android:id="@+id/btn_6_id"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="sports"
+             android:textSize="12sp"
+             android:padding="5dp"
+             android:layout_margin="5dp"/>
+         <Button
+             android:id="@+id/btn_7_id"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="technology"
+             android:textSize="12sp"
+             android:padding="5dp"
+             android:layout_margin="5dp"/>
+
+      </LinearLayout>
+   </HorizontalScrollView>
+
+   <androidx.cardview.widget.CardView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+      app:cardElevation="10dp"
+      android:layout_margin="15dp">
+      <androidx.appcompat.widget.SearchView
+          android:layout_width="match_parent"
+         android:id="@+id/search_id"
+          app:iconifiedByDefault="false"
+          app:defaultQueryHint="Search"
+          android:layout_height="?attr/actionBarSize">
+
+      </androidx.appcompat.widget.SearchView>
+
+   </androidx.cardview.widget.CardView>
 
    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/recycler_main_id"
